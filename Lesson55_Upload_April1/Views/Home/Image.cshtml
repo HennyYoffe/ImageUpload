@@ -1,0 +1,37 @@
+﻿@using ClassLibrary1
+@using Lesson55_Upload_April1.Models
+@model ImageViewModel
+@{
+    ViewBag.Title = "Image";
+}
+
+<div class="row">
+    @if(Model.First == true)
+    {
+    <div class="col-md-6 col-md-offset-3 well">
+        <form method="post" action="/home/image">
+            <br />
+            <h3>Please enter a password:</h3>
+            <input type="text" name="password" />
+            <input type="hidden" name="id" value="@Model.Image.Id" />
+            <button class="btn btn-danger">Submit</button>
+        </form>
+    </div>
+    }
+    
+    @if (Model.Session == false && Model.First == false)
+    {
+        <div class="col-md-6 col-md-offset-3 well" id="wrong" >
+            <h3>please try again</h3>
+        </div>
+    }
+    else if(Model.Session == true)
+    {
+        <div class="col-md-6 col-md-offset-3 well" id="right" >
+            <img style="width: 200px;" src="/UploadedImages/@Model.Image.FileName" />
+            <label>@Model.Image.Views</label>
+        </div>
+    }
+
+</div>
+

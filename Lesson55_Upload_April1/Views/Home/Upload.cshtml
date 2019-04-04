@@ -1,0 +1,18 @@
+﻿@using Lesson55_Upload_April1
+@using ClassLibrary1
+@model Image
+@{
+    ViewBag.Title = "Upload";
+}
+
+
+<h3>
+    Thank you for uploading your images, here's the link to share with your friends:
+</h3>
+<br />
+ <link>   http://localhost:27298/home/image?id=@Model.Id <link/>
+ <h4> Make sure to give them the password of '@Model.Password'</h4>
+
+
+
+
